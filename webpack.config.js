@@ -72,5 +72,13 @@ module.exports = {
     ],
 
     // 模式
-    mode: 'development'
+    mode: 'development',
+
+    // 开发服务器 npx webpack-dev-server
+    devServer:{
+        contentBase: resolve (__dirname, 'build'),
+        compress: true,
+        port: 1234
+    }
+
 }
