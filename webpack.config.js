@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // npm i css-loader style-loader -D      npm i url-loader file-loader -D
 // npm i mini-css-extract-plugin -D
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
+// npm i optimize-css-assets-webpack-plugin -D
+  
 // 设置node.js环境变量
 process.env.NODE_ENV = 'development'
 module.exports = {
