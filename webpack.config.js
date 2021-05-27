@@ -3,6 +3,11 @@
 const { path, resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // npm i css-loader style-loader -D      npm i url-loader file-loader -D
+// npm i mini-css-extract-plugin -D
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+// 设置node.js环境变量
+process.env.NODE_ENV = 'development'
 module.exports = {
     // 入口文件
     entry: './src/index.js',
@@ -26,7 +31,17 @@ module.exports = {
                  // 使用那些loader处理
                 use: [
                     //  创建style标签，将js中的样式资源插入进行，添加到header中生效
-                    'style-loader',
+                    // 'style-loader',
+                    MiniCssExtractPlugin.loader,  //提取js中的css成单独文件
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            indent: 'postcss',
+                            plugins: () => [
+                                require ('postcss-preset-env')()
+                            ]
+                        }
+                    },
                     // 将css文件变成common.js模块加载在js文件中，里面内容是字符串
                     'css-loader'
                 ]
@@ -34,7 +49,8 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: [
-                    'style-loader',
+                    // 'style-loader',
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'less-loader'
                 ]
@@ -68,6 +84,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'css/built.css'
         })
     ],
 
@@ -78,7 +97,8 @@ module.exports = {
     devServer:{
         contentBase: resolve (__dirname, 'build'),
         compress: true,
-        port: 1234
+        port: 1234,
+        open: true
     }
 
 }
