@@ -7,18 +7,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // npm i optimize-css-assets-webpack-plugin -D
   
+// babel缓存 cacheDirectory：true
 // 设置node.js环境变量
-process.env.NODE_ENV = 'development'
+process.env.NODE_ENV = 'production'
 module.exports = {
     target: 'web',
     // 入口文件
-    entry: './src/index.js',
-
+    entry: ['./src/index.js', './src/index.html'],
     // 输出
 
     output: {
         //输出文件名
-        filename: 'built.js',
+        filename: 'js/[name].built.[contenthash]js',
 
         // 输出路径
 
@@ -93,14 +93,15 @@ module.exports = {
     ],
 
     // 模式
-    mode: 'development',
+    mode: 'production',
 
     // 开发服务器 npx webpack-dev-server
     devServer:{
         contentBase: resolve (__dirname, 'build'),
         compress: true,
         port: 1234,
+        hot: true,
         open: true
-    }
-
+    },
+    devtool: 'source-map'
 }
