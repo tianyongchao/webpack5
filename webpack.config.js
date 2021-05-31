@@ -18,7 +18,7 @@ module.exports = {
 
     output: {
         //输出文件名
-        filename: 'index.js',
+        filename: 'js/[name].built.[contenthash]js',
 
         // 输出路径
 
