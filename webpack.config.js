@@ -18,7 +18,8 @@ module.exports = {
 
     output: {
         //输出文件名
-        filename: 'js/[name].built.[contenthash]js',
+        // filename: 'js/[name].built.[contenthash]js',
+        filename: '[name].js',
 
         // 输出路径
 
