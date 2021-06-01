@@ -9,7 +9,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
   
 // babel缓存 cacheDirectory：true
 // 设置node.js环境变量
-process.env.NODE_ENV = 'production'
+process.env.NODE_ENV = 'development'
 module.exports = {
     target: 'web',
     // 入口文件
@@ -19,11 +19,24 @@ module.exports = {
     output: {
         //输出文件名
         // filename: 'js/[name].built.[contenthash]js',
-        filename: '[name].js',
+        filename: 'js/[name].js',
 
         // 输出路径
 
-        path: resolve(__dirname, 'build')
+        path: resolve(__dirname, 'build'),
+
+        // 所有资源引入的公共路径前缀
+        // publicPath: './',
+
+        // 非入口chunk的名称
+        chunkFilename: '[name]_chunk.js',
+
+        // libraryTarget: 'commonjs'
+
+        // library: '[name]',  // 全局整个库向外暴露的变量名
+
+        // libraryTarget: 'window'   //  变量添加到哪个browser   node为global
+
     },
     // Loader配置
     module: {
@@ -94,15 +107,41 @@ module.exports = {
     ],
 
     // 模式
-    mode: 'production',
+    mode: 'development',
 
+    // 解析模块规则
+    resolve:{
+        // 配置路径别名
+        alias:{
+            $css: resolve(__dirname, 'src/css')
+        },
+        //配置省略文件领的后缀名
+        extensions: ['.js', 'json']
+    },
     // 开发服务器 npx webpack-dev-server
     devServer:{
         contentBase: resolve (__dirname, 'build'),
         compress: true,
-        port: 1234,
+      //  忽略文件
+        watchOptions: {
+            ignored: '/node_modules/'
+        },
+        port: 9090,
         hot: true,
-        open: true
+        open: true,
+        watchContentBase: true,  // 监视contentBase 下所有的文件。一旦有变化就会reload
+        clientLogLevel: 'none' , //不显示启动服务器的日日志信息
+        overlay: false,
+        // quiet: true   // 除了基本的启动信息，其他内容都不要打印
+        proxy: {
+            'api': {
+                target: '',
+                // 路径重写  将/api/xxx   -->   /xxx （去掉api）
+                pathRewrite: {
+                    '^api': ''
+                }
+            }
+        }
     },
     devtool: 'source-map'
 }
