@@ -11,7 +11,9 @@
 <div id="app">
     <i-button @click="show">Click me!</i-button>
     <Modal v-model="visible" title="Welcome">Welcome to ViewUI</Modal>
-    <i-table :columns="columns1" :data="data1">333</i-table>
+    <i-table :columns="columns1" :data="data1"></i-table>
+    <i-input v-model="datas" style="width: 300px" ></i-input>
+    <div>{{datas}}</div>
     <date-picker @on-change="handleChange" type="date" placeholder="Select date" style="width: 200px"></date-picker>
 </div>
 <script>

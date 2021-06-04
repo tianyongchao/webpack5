@@ -8,6 +8,7 @@ new Vue({
     el: '#app',
     data: {
         visible: false,
+        datas: '请输入',
         columns1: [
                 {
                     title: 'Name',
