@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // npm i mini-css-extract-plugin -D
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // npm i optimize-css-assets-webpack-plugin -D
-  
+
 // babel缓存 cacheDirectory：true
 // 设置node.js环境变量
 process.env.NODE_ENV = 'development'
@@ -82,7 +82,7 @@ module.exports = {
                     // 哈希
                     // name: '[hash: 10].[ext]'
                 }
-                
+
             },
             {
                 test: /\.html$/,
@@ -126,7 +126,7 @@ module.exports = {
         watchOptions: {
             ignored: '/node_modules/'
         },
-        port: 9090,
+        port: 8201,
         hot: true,
         open: true,
         watchContentBase: true,  // 监视contentBase 下所有的文件。一旦有变化就会reload
