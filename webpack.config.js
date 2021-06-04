@@ -8,8 +8,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // npm i optimize-css-assets-webpack-plugin -D
 
 // babel缓存 cacheDirectory：true
-// 设置node.js环境变量
-process.env.NODE_ENV = 'development'
+// 设置node.js环境变量  development
+let environment = 'development'
+process.env.NODE_ENV = environment
 module.exports = {
     target: 'web',
     // 入口文件
@@ -107,7 +108,7 @@ module.exports = {
     ],
 
     // 模式
-    mode: 'development',
+    mode: environment,
 
     // 解析模块规则
     resolve:{
