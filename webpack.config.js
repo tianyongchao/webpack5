@@ -136,7 +136,7 @@ module.exports = {
         // quiet: true   // 除了基本的启动信息，其他内容都不要打印
         proxy: {
             'api': {
-                target: '',
+                target: 'https://config.evotradesys-inc.com',
                 // 路径重写  将/api/xxx   -->   /xxx （去掉api）
                 pathRewrite: {
                     '^api': ''

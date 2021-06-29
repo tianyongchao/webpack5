@@ -59,6 +59,6 @@ new Vue({
         }
     },
     mounted () {
-        console.log(this.columns1)
+        console.log(axios);
     }
 })

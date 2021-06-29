@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/iview/3.5.5-rc.1/styles/iview.min.css">
     <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/iview/3.5.5-rc.1/iview.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
 </head>
 <body>
 <div id="app">
@@ -15,6 +16,7 @@
     <i-input v-model="datas" style="width: 300px" ></i-input>
     <div>{{datas}}</div>
     <date-picker @on-change="handleChange" type="date" placeholder="Select date" style="width: 200px"></date-picker>
+    <i-input autofocus  style="max-width: 300px;" id="input"></i-input>
 </div>
 <script>
 </script>
