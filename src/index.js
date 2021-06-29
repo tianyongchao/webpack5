@@ -4,6 +4,8 @@
  *  生产环境   webpack ./src/index.js -o ./build/built.js --mode=production
  */
 import './index.less'
+import moment from 'moment'
+Vue.prototype.$moment = moment
 new Vue({
     el: '#app',
     data: {
@@ -59,6 +61,13 @@ new Vue({
         }
     },
     mounted () {
-        console.log(axios);
+ // 本月
+let beginTime = this.$moment()
+.startOf("month")
+.format("YYYY-MM-DD 00:00:00");
+let endTime = this.$moment()
+.endOf("month")
+.format("YYYY-MM-DD 00:00:00");
+console.log(beginTime, endTime);
     }
 })
