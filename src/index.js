@@ -10,6 +10,7 @@ Vue.prototype.$moment = moment
 new Vue({
     el: '#app',
     data: {
+        list: [],
         visible: false,
         datas: '请输入',
         columns1: [
@@ -61,9 +62,9 @@ new Vue({
             console.log(data)
         },
         async getList() {
-            console.log(http);
            let a =  await http.configGet()
-           console.log(a);
+           this.list = a.data.data.coinsymbol_introduce_names
+           console.log(this.list, 88998);
         }
     },
     mounted () {

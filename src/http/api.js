@@ -1,5 +1,5 @@
-
+const basUrl = '/exchange-app-api/common'
  const _api = {
-  symbolList: '/public_info_v9',
+  symbolList: basUrl + '/public_info_v9',
 }
 export default _api

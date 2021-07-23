@@ -2,7 +2,7 @@ import axios from 'axios'
 import api from './api.js'
 console.log(api);
 //请求
-axios.defaults.baseURL = "/exchange-app-api/common"
+// axios.defaults.baseURL = "/exchange-app-api/common"
 function http(url, method, params = {}) {
 	//params.Token = getCookie("token");
 	if (method === 'EXPORT') {
