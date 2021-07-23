@@ -5,6 +5,7 @@
  */
 import './index.less'
 import moment from 'moment'
+import http from "../src/http/instance.js";
 Vue.prototype.$moment = moment
 new Vue({
     el: '#app',
@@ -58,9 +59,15 @@ new Vue({
         },
         handleChange(data) {
             console.log(data)
+        },
+        async getList() {
+            console.log(http);
+           let a =  await http.configGet()
+           console.log(a);
         }
     },
     mounted () {
+        this.getList()
  // 本月
 let beginTime = this.$moment()
 .startOf("month")

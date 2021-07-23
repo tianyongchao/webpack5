@@ -135,11 +135,12 @@ module.exports = {
         overlay: false,
         // quiet: true   // 除了基本的启动信息，其他内容都不要打印
         proxy: {
-            'api': {
-                target: 'https://config.evotradesys-inc.com',
+            '/exchange-app-api/common': {
+                target: 'https://appapi.guiya88.cn',
                 // 路径重写  将/api/xxx   -->   /xxx （去掉api）
+                changeOrigin: true,
                 pathRewrite: {
-                    '^api': ''
+
                 }
             }
         }
