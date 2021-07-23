@@ -24,7 +24,7 @@ module.exports = {
 
         // 输出路径
 
-        path: resolve(__dirname, 'build'),
+        path: resolve(__dirname, 'dist'),
 
         // 所有资源引入的公共路径前缀
         // publicPath: './',
